@@ -1,0 +1,28 @@
+{% extends "templates/layouts/default.html" %}
+
+{% block intro %}
+	<div class="container">
+		{% if pledgeSubmitted %}
+		<h1>Thank you for your pledge!</h1>
+		{% endif %}
+		{% include "templates/views/progress.html" %}
+		<p>
+			We have selected the following organization, tax-deductable,
+			maximum money goes to Nepal etc.
+		</p>
+	</div>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h2>Suggested Organizations</h2>
+		{% if organizations.length %}
+			{% for organization in organizations %}
+				<h2>{{ organization.name }}
+				</h2>
+			{% endfor %}
+		{% else %}
+			<h3 class="text-muted">There are no charity organizations added yet. Please add them from admin panel.</h3>
+		{% endif %}
+	</div>
+{% endblock %}

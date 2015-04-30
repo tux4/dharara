@@ -1,0 +1,14 @@
+{% extends "templates/layouts/default.html" %}
+
+{% block content %}
+	<div class="container">
+		<div class="jumbotron">
+			{% include "templates/views/progress.html" %}
+			<h1>{{ campaign.introduction.campaignName }}</h1>
+			{% include "templates/views/pledge.html" %}
+		</div>
+		<div class="container">
+			{{ campaign.introduction.long }}
+		</div>
+	</div>
+{% endblock %}
