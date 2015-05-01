@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 
-	view.query('contributions', keystone.list('Contribution').model.find().sort('sortOrder'));
+	view.query('contributions', keystone.list('Contribution').model.find().limit(10).sort('-createdDate').select('name message amount'));
 	view.query('campaign', keystone.list('Global').model.findOne())
 	// Render the view
 	view.render('index');

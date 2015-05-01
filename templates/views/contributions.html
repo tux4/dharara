@@ -1,0 +1,15 @@
+<div class="well well-lg contributions-container">
+  <h4>Recent Pledges</h4>
+  <div>
+    {% for contribution in contributions %}
+    <div class="contribution-item">
+      <p>
+        {{ contribution.name or "Anonymous"}} contributed ${{ contribution.amount }}
+      </p>
+      <p class="text-muted">
+        {{ contribution.message }}
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</div>

@@ -21,14 +21,20 @@
 				<div class="row pledge-button-container">
 					<a id="" class="col-md-12 btn btn-success btn-large" href="#pledge-container">Pledge Your Contribution</a>
 				</div>
-
+				<div>
+				{% include "templates/views/contributions.html" %}
+				</div>
 			</div>
 		</div>
 		<div id="pledge-container" class="jumbotron pledge-container">
 			<div class="row">
 				<div class="col-md-8">
 					<p>
-						We have curated a list of tax deductable ...
+						{% if campaign.pledgeInformation %}
+							{{ campaign.pledgeInformation }}
+						{% else %}
+							You can set the 'Pledge Information' from the admin ui in Campaign>Global section
+						{% endif %}
 					</p>
 				</div>
 				<div class="col-md-4">
@@ -36,6 +42,16 @@
 					{% include "templates/views/pledge.html" %}
 				</div>
 			</div>
+		</div>
+		<div class="container">
+			<h3>Contact Information</h3>
+			{% if campaign.contactInformation %}
+				{{ campaign.contactInformation }}
+			{% else %}
+				<p>Provide a contact information so people can reach you. You can do so from
+					the admin UI.
+				</p>
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}

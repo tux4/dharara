@@ -46,3 +46,13 @@
 	height: 200px;
 	overflow: auto;
 }
+
+//Pledges
+.contributions-container {
+	margin-top: 20px;
+}
+
+.contribution-item {
+	padding: 5px 0px;
+	border-bottom: 1px solid lighten(gray, 20%);
+}

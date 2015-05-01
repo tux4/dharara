@@ -1,3 +1,4 @@
+var moment = require('moment');
 var keystone = require('keystone'),
 	Contribution = keystone.list('Contribution');
 
@@ -18,7 +19,6 @@ exports = module.exports = function(req, res) {
 	locals.addAmount = parseFloat(req.body.amount)  || 0;
 
 	view.on('post', { action: 'pledge' }, function(next) {
-
 		var newContribution = new Contribution.model(),
 			updater = newContribution.getUpdateHandler(req);
 
@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 			if (err) {
 				locals.validationErrors = err.errors;
 			} else {
-				if (locals.addAmount !== 0 and locals.addAmount < 5000) {
+				if (locals.addAmount !== 0 && locals.addAmount < 5000) {
 					campaign.update({$inc: {'currentTotal': locals.addAmount}}, function(arg1, arg2, resp) {
 						if (resp.ok) {
 							console.log('New Contribution made: ', locals.addAmount);

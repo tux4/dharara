@@ -18,12 +18,16 @@ Global.add({
 	campaignLogo: { type: Types.CloudinaryImage },
   currentTotal: { type: Types.Money },
   goal: { type: Types.Money },
+	pledgeDefault: {type: Types.Money },
   introduction: {
 		image: { type: Types.CloudinaryImage },
 		short: { type: Types.Html, wysiwyg: true, height: 150 },
 		long: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
+	pledgeInformation: { type: Types.Html, wysiwyg: true, height: 150},
+	organizationIntroduction: { type: Types.Html, wysiwyg: true, height: 150},
 	primaryContact: { type: Types.Email, initial: true, required: true, index: true },
+	contactInformation: { type: Types.Html, wysiwyg: true, height: 150},
 });
 
 Global.schema.virtual('content.full').get(function() {

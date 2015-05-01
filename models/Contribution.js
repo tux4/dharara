@@ -17,7 +17,7 @@ Contribution.add({
 	email: { type: Types.Email },
 	affiliation: { type: Types.Select, options: 'Columbia, Others', default: 'Others', index: true },
   message: { type: String },
-  createdDate: { type: Types.Date, index: true },
+  createdDate: { type: Types.Datetime, index: true, default: Date.now },
 });
 
 Contribution.schema.virtual('content.full').get(function() {

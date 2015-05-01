@@ -1,33 +1,34 @@
 <form method="post" action="organization">
 	<input type="hidden" name="action" value="pledge">
   {% set class = ( "has-error" if validationErrors.amount else "" ) %}
-	<div class="form-group">
-		<label>
-			<span>Amount</span>
-			<input type="number" name="amount" value="{{ formData.amount or 25 }}" class="form-control">
-		</label>
-	</div>
+  <div class="form-group">
+  	<label>Amount</label>
+  	<div class="input-group input-group-lg">
+      <span class="input-group input-group-addon" id="basic-addon1">$</span>
+  		<input type="number" name="amount" value="{{ campaign.pledgeDefault or 25 }}" class="form-control">
+  	</div>
+  </div>
 	{% set class = ( "has-error" if validationErrors.name else "" ) %}
-	<div class="form-group {{ class }}">
-		<label>
-			<span>Name</span>
-			<input type="text" name="name" value="{{ formData.name }}" class="form-control" placeholder="(Optional)">
-		</label>
-	</div>
+  <div class="form-group">
+  	<label>Name</label>
+  	<div class="input-group input-group-lg {{ class }}">
+  		<input type="text" name="name" value="{{ formData.name }}" class="form-control" placeholder="(Optional)">
+  	</div>
+  </div>
 	{% set class = ( "has-error" if validationErrors.email else "" ) %}
-	<div class="form-group {{ class }}">
-		<label>
-			<span>Email</span>
-			<input type="email" name="email" value="{{ formData.email }}" class="form-control"  placeholder="(Optional)">
-		</label>
-	</div>
+  <div class="form-group">
+  	<label>Email</label>
+  	<div class="input-group input-group-lg {{ class }}">
+  		<input type="email" name="email" value="{{ formData.email }}" class="form-control"  placeholder="(Optional)">
+  	</div>
+  </div>
 	{% set class = ( "has-error" if validationErrors.message else "" ) %}
-	<div class="form-group {{ class }}">
-		<label>
-			<span>Message</span>
-			<textarea name="message" placeholder="(Optional)" rows="4" class="form-control">{{ formData.message }}</textarea>
-		</label>
-	</div>
+  <div class="form-group">
+  	<label>Message</label>
+  	<div class="input-group input-group-lg {{ class }}">
+  			<textarea name="message" placeholder="(Optional)" rows="4" class="form-control">{{ formData.message }}</textarea>
+  	</div>
+  </div>
 	<div class="form-actions">
 		<button type="submit" class="btn btn-primary">Pledge</button>
 	</div>
