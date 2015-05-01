@@ -100,6 +100,13 @@ keystone.set('nav', {
 	'users': 'users'
 });
 
+// Cloudinary Tokens
+keystone.set('cloudinary config', {
+	cloud_name: 'dharara', 
+	api_key: '742924531131872',
+	api_secret: 'YvOWo-wF4KOtOMJxLtbcHB9uiOU'
+});
+
 // Start Keystone to connect to your database and initialise the web server
 
 keystone.start();

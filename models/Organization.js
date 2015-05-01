@@ -14,10 +14,12 @@ var Organization = new keystone.List('Organization', {
 Organization.add({
 	name: { type: String, required: true, initial: true },
   rating: { type: Number },
-	url: { type: String, required: true, initial: true },
-	organizationLogo: { type: String },
-	type: { type: Types.Select, options: 'Immediate Relief, Long Term Reconstruction' },
   description: { type: String },
+	focus: { type: String },
+	url: { type: String, required: true, initial: true },
+	organizationLogoURL: { type: String },
+	type: { type: String },
+	notes: { type: String},
 });
 
 Organization.schema.virtual('content.full').get(function() {

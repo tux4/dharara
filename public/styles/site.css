@@ -4916,3 +4916,26 @@ button.close {
   display: block;
   max-width: 100%;
   height: auto; }
+
+.intro-image {
+  max-width: 100%; }
+
+.navbar-brand {
+  padding: 3px 15px 3px 3px; }
+  .navbar-brand .campaign-logo {
+    height: 100%;
+    display: inline-block; }
+
+.long-introduction {
+  margin-top: 20px; }
+
+.pledge-button-container {
+  padding: 0px 20px; }
+
+.organization-logo {
+  padding: 20px;
+  height: 200px !important; }
+
+.organization-description {
+  height: 200px;
+  overflow: auto; }

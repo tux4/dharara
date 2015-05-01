@@ -2,13 +2,40 @@
 
 {% block content %}
 	<div class="container">
-		<div class="jumbotron">
-			{% include "templates/views/progress.html" %}
-			<h1>{{ campaign.introduction.campaignName }}</h1>
-			{% include "templates/views/pledge.html" %}
+		<div class="container short-introduction">
+			{{ campaign.introduction.short }}
 		</div>
-		<div class="container">
-			{{ campaign.introduction.long }}
+		<div class="container row">
+			<div class="col-md-8">
+				{% if campaign.introduction.image.secure_url %}
+					<img class="intro-image" src="{{ campaign.introduction.image.secure_url }}" class="img-rounded">
+				{% else %}
+					<img class="intro-image" src="/images/quake/1.jpg" class="img-rounded">
+				{% endif %}
+				<div class="long-introduction">
+					{{ campaign.introduction.long }}
+				</div>
+			</div>
+			<div class="col-md-4">
+				{% include "templates/views/progress.html" %}
+				<div class="row pledge-button-container">
+					<a id="" class="col-md-12 btn btn-success btn-large" href="#pledge-container">Pledge Your Contribution</a>
+				</div>
+
+			</div>
+		</div>
+		<div id="pledge-container" class="jumbotron pledge-container">
+			<div class="row">
+				<div class="col-md-8">
+					<p>
+						We have curated a list of tax deductable ...
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h3>Pledge your contribution</h3>
+					{% include "templates/views/pledge.html" %}
+				</div>
+			</div>
 		</div>
 	</div>
 {% endblock %}

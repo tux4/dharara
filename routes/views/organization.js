@@ -15,6 +15,7 @@ exports = module.exports = function(req, res) {
 	locals.formData = req.body || {};
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
+	locals.addAmount = parseFloat(req.body.amount)  || 0;
 
 	view.on('post', { action: 'pledge' }, function(next) {
 
@@ -29,11 +30,10 @@ exports = module.exports = function(req, res) {
 			if (err) {
 				locals.validationErrors = err.errors;
 			} else {
-				var addAmount = parseFloat(req.body.amount)  || 0;
-				if (addAmount !== 0) {
-					campaign.update({$inc: {'currentTotal': addAmount}}, function(arg1, arg2, resp) {
+				if (locals.addAmount !== 0 and locals.addAmount < 5000) {
+					campaign.update({$inc: {'currentTotal': locals.addAmount}}, function(arg1, arg2, resp) {
 						if (resp.ok) {
-							console.log('New Contribution made: ', addAmount);
+							console.log('New Contribution made: ', locals.addAmount);
 						} else {
 							console.error('New Contribution failed to update');
 						}
@@ -47,7 +47,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	view.query('organizations', keystone.list('Organization').model.find().sort('sortOrder'));
-
 	view.query('campaign', keystone.list('Global').model.findOne());
 	// Render the view
 	view.render('organization');

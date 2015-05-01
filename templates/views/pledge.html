@@ -1,38 +1,34 @@
-<div class="row">
-	<div class="col-sm-8 col-md-6">
-		<form method="post" action="organization">
-			<input type="hidden" name="action" value="pledge">
-      {% set class = ( "has-error" if validationErrors.amount else "" ) %}
-			<div class="form-group">
-				<label>
-					<span>Amount</span>
-					<input type="number" name="amount" value="{{ formData.amount or 25 }}" class="form-control">
-				</label>
-			</div>
-			{% set class = ( "has-error" if validationErrors.name else "" ) %}
-			<div class="form-group {{ class }}">
-				<label>
-					<span>Name</span>
-					<input type="text" name="name" value="{{ formData.name }}" class="form-control" placeholder="(Optional)">
-				</label>
-			</div>
-			{% set class = ( "has-error" if validationErrors.email else "" ) %}
-			<div class="form-group {{ class }}">
-				<label>
-					<span>Email</span>
-					<input type="email" name="email" value="{{ formData.email }}" class="form-control"  placeholder="(Optional)">
-				</label>
-			</div>
-			{% set class = ( "has-error" if validationErrors.message else "" ) %}
-			<div class="form-group {{ class }}">
-				<label>
-					<span>Message</span>
-					<textarea name="message" placeholder="(Optional)" rows="4" class="form-control">{{ formData.message }}</textarea>
-				</label>
-			</div>
-			<div class="form-actions">
-				<button type="submit" class="btn btn-primary">Pledge</button>
-			</div>
-		</form>
+<form method="post" action="organization">
+	<input type="hidden" name="action" value="pledge">
+  {% set class = ( "has-error" if validationErrors.amount else "" ) %}
+	<div class="form-group">
+		<label>
+			<span>Amount</span>
+			<input type="number" name="amount" value="{{ formData.amount or 25 }}" class="form-control">
+		</label>
 	</div>
-</div>
+	{% set class = ( "has-error" if validationErrors.name else "" ) %}
+	<div class="form-group {{ class }}">
+		<label>
+			<span>Name</span>
+			<input type="text" name="name" value="{{ formData.name }}" class="form-control" placeholder="(Optional)">
+		</label>
+	</div>
+	{% set class = ( "has-error" if validationErrors.email else "" ) %}
+	<div class="form-group {{ class }}">
+		<label>
+			<span>Email</span>
+			<input type="email" name="email" value="{{ formData.email }}" class="form-control"  placeholder="(Optional)">
+		</label>
+	</div>
+	{% set class = ( "has-error" if validationErrors.message else "" ) %}
+	<div class="form-group {{ class }}">
+		<label>
+			<span>Message</span>
+			<textarea name="message" placeholder="(Optional)" rows="4" class="form-control">{{ formData.message }}</textarea>
+		</label>
+	</div>
+	<div class="form-actions">
+		<button type="submit" class="btn btn-primary">Pledge</button>
+	</div>
+</form>
