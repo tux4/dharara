@@ -46,7 +46,7 @@ exports = module.exports = function(req, res) {
 
 	});
 
-	view.query('organizations', keystone.list('Organization').model.find().sort('sortOrder'));
+	view.query('organizations', keystone.list('Organization').model.find().sort('-priority'));
 	view.query('campaign', keystone.list('Global').model.findOne());
 	// Render the view
 	view.render('organization');

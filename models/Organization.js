@@ -20,6 +20,7 @@ Organization.add({
 	organizationLogoURL: { type: String },
 	type: { type: String },
 	notes: { type: String},
+	priority: { type: Number, default: 0 },
 });
 
 Organization.schema.virtual('content.full').get(function() {
