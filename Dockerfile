@@ -8,8 +8,8 @@ RUN sudo apt-get install -y python wget mongodb
 # Install Node.js
 RUN \
   cd /tmp && \
-  wget http://nodejs.org/dist/v0.12.2/node-v0.12.2-linux-x64.tar.gz && \
-  tar --strip-components 1 -xvzf node-v0.12.2-linux-x64.tar.gz -C /usr/local
+  wget http://nodejs.org/dist/v0.10.38/node-v0.10.38-linux-x64.tar.gz && \
+  tar --strip-components 1 -xvzf node-v0.10.38-linux-x64.tar.gz -C /usr/local
   
 # Run MongoDB
 RUN service mongodb start
